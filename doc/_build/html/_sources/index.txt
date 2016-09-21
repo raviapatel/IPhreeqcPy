@@ -15,8 +15,10 @@ Contents:
    install
    example
    iphreeqc
-   lic
    cite
+   lic
+   source
+	
 	
 Indices and tables
 ==================
