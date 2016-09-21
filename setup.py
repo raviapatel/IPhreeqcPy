@@ -72,7 +72,7 @@ def windows_compile():
     #add line to unzip iphreeqc
     f='iphreeqc-3.3.8-11728'
     os.chdir('iphreeqc_src')    
-#    zipfile.ZipFile(f+'.zip').extractall()
+    zipfile.ZipFile(f+'.zip').extractall()
     os.chdir(f)    
     subprocess.call('cmake -G "Visual Studio 10 2010" "..\%s"'%f, shell=True)
     subprocess.call('cmake --build . --config Release', shell=True)
@@ -83,9 +83,9 @@ def linux_compile():
     #add line to unzip iphreeqc
     f='iphreeqc-3.3.8-11728'
     os.chdir('iphreeqc_src')    
- #   tar = tarfile.open(f+'.tar.gz', "r:gz")
- #   tar.extractall()
- #   tar.close()
+    tar = tarfile.open(f+'.tar.gz', "r:gz")
+    tar.extractall()
+    tar.close()
     os.chdir(f)
     ptemp=os.path.abspath(os.getcwd())
     subprocess.call('./configure --prefix=%s --exec-prefix=%s'%(ptemp,ptemp),shell=True)
@@ -106,21 +106,22 @@ def run_setup():
         cmdclass={'install': CompilePhrqc},
         name='IPhreeqcPy',
         version=IPhreeqcPy.__version__,
-        url='',
+        author = 'Ravi A. Patel',
+        author_email = 'ravee.a.patel@gmail.com',
+        download_url = 'https://github.com/peterldowns/mypackage/tarball/0.1' ,
+        url='https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0-beta.tar.gz',
         license='LGPL V3',
-        author='Ravi Patel',
-        author_email='ravee.a.patel@gmail.com',
         description='Python wrapper for Iphreeqc',
         long_description=open('README.rst').read(),
         py_modules = ['IPhreeqcPy'],
         data_files=data,
         platforms=['Windows','Linux'],
-        install_requires=[],
+        install_requires=['numpy'],
         classifiers=[
             'Intended Audience :: Developers',
             'Intended Audience :: Science/Research',
             'Operating System :: Microsoft :: Windows',
-            'Operating System :: Linux',
+            'Operating System :: POSIX :: Linux',
             'Programming Language :: Python :: 2.6',
             'Programming Language :: Python :: 2.7',
             'Programming Language :: Python :: 3.3',
