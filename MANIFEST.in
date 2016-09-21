@@ -1,0 +1,4 @@
+recursive-include iphreeqc_src *.*
+include README.rst
+recursive-include doc *.*
+include lgpl-3.0.txt
