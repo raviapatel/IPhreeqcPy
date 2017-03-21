@@ -62,7 +62,7 @@ For detailed instructions on installation visit
 
 Detailed Documentation
 +++++++++++++++++++++++
-For documentation visit  `<http://raviapatel.bitbucket.org/IPhreeqcPy/>`_
+For documentation visit  `<http://raviapatel.bitbucket.io/IPhreeqcPy/>`_
 
 License and Terms of use
 ++++++++++++++++++++++++
