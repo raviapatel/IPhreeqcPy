@@ -17,16 +17,18 @@
 #>=============================================================================
 
 import subprocess
-import os 
+import os,sys
 import zipfile 
 import tarfile
 import platform
 import shutil
 from os import  listdir
 from os.path import join, isfile, splitext 
-import IPhreeqcPy
 from numpy.distutils.core import setup
 from numpy.distutils.command.install import install
+PARENT='src'
+sys.path.append(os.path.join(os.path.dirname(__file__), PARENT))
+import IPhreeqcPy
             
 class CompilePhrqc(install):
     def run(self):
@@ -108,11 +110,12 @@ def run_setup():
         version=IPhreeqcPy.__version__,
         author = 'Ravi A. Patel',
         author_email = 'ravee.a.patel@gmail.com',
-        download_url = 'https://github.com/peterldowns/mypackage/tarball/0.1' ,
+        download_url = 'http://raviapatel.bitbucket.org/IPhreeqcPy' ,
         url='https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0-beta.tar.gz',
         license='LGPL V3',
         description='Python wrapper for Iphreeqc',
         long_description=open('README.rst').read(),
+   	package_dir={'': 'src'},
         py_modules = ['IPhreeqcPy'],
         data_files=data,
         platforms=['Windows','Linux'],

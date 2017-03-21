@@ -19,7 +19,7 @@ import shlex
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, os.path.abspath(os.path.join('..')))
+sys.path.insert(0, os.path.abspath(os.path.join('..','src')))
 import IPhreeqcPy
 # -- General configuration ------------------------------------------------
 
@@ -57,7 +57,7 @@ source_suffix = ['.rst']
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'contents'
 
 # General information about the project.
 project = u'IPhreeqcPy'
@@ -167,7 +167,7 @@ html_static_path = ['_static']
 #html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-#html_sidebars = {}
+html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'], }
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -177,19 +177,19 @@ html_static_path = ['_static']
 #html_domain_indices = True
 
 # If false, no index is generated.
-#html_use_index = True
+html_use_index = True
 
 # If true, the index is split into individual pages for each letter.
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
+html_show_sphinx = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#html_show_copyright = True
+html_show_copyright = True
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -203,7 +203,7 @@ html_static_path = ['_static']
 # Sphinx supports the following languages:
 #   'da', 'de', 'en', 'es', 'fi', 'fr', 'hu', 'it', 'ja'
 #   'nl', 'no', 'pt', 'ro', 'ru', 'sv', 'tr'
-#html_search_language = 'en'
+html_search_language = 'en'
 
 # A dictionary with options for the search language support, empty by default.
 # Now only 'ja' uses this config value
@@ -236,8 +236,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'IPhreeqcPy.tex', u'IPhreeqcPy Documentation',
-   u'Ravi Patel', 'manual'),
+  (master_doc, 'IPhreeqcPy.tex',  u'IPhreeqcPy a Python wrapper for IPhreeqc',
+   [author], 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -266,7 +266,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'iphreeqcpy', u'IPhreeqcPy Documentation',
+    ('index', 'IPhreeqcPy', u'IPhreeqcPy a Python wrapper for IPhreeqc',
      [author], 1)
 ]
 
@@ -280,8 +280,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'IPhreeqcPy', u'IPhreeqcPy Documentation',
-   author, 'IPhreeqcPy', 'One line description of project.',
+  (master_doc, 'IPhreeqcPy', u'IPhreeqcPy a Python wrapper for IPhreeqc',
+   author, 'IPhreeqcPy', 'A Python wrapper for IPhreeqc.',
    'Miscellaneous'),
 ]
 
@@ -366,3 +366,4 @@ epub_exclude_files = ['search.html']
 
 # If false, no index is generated.
 #epub_use_index = True
+#autoclass_content='both'
