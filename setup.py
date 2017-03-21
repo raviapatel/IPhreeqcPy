@@ -26,8 +26,7 @@ from os import  listdir
 from os.path import join, isfile, splitext 
 from numpy.distutils.core import setup
 from numpy.distutils.command.install import install
-PARENT='src'
-sys.path.append(os.path.join(os.path.dirname(__file__), PARENT))
+sys.path.append('./src')
 import IPhreeqcPy
             
 class CompilePhrqc(install):
@@ -104,14 +103,15 @@ def run_setup():
         data.append(join('libiphreeqc.so'))
     elif platform.system() == 'Windows':
         data.append(join('IPhreeqc.dll'))
+    v=IPhreeqcPy.__version__
     setup(
         cmdclass={'install': CompilePhrqc},
         name='IPhreeqcPy',
-        version=IPhreeqcPy.__version__,
+        version=v,
         author = 'Ravi A. Patel',
         author_email = 'ravee.a.patel@gmail.com',
         download_url = 'http://raviapatel.bitbucket.org/IPhreeqcPy' ,
-        url='https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0-beta.tar.gz',
+        url='https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0.0.tar.gz',
         license='LGPL V3',
         description='Python wrapper for Iphreeqc',
         long_description=open('README.rst').read(),

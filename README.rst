@@ -24,19 +24,9 @@ Developer
 
 Ravi A. Patel
 
-Scientific Collobrator
-
-Belgian Nuclear Reasearch Center (`SCK-CEN`_)
-
-Mol
-
-Belgium
-
 
 Contact me
 ++++++++++
-
-email (work):rpatel@sckcen.be
 
 email (personal): ravee.a.patel@gmail.com
 
@@ -53,7 +43,7 @@ for citing `IPhreeqcPy`_
    @manual{Patel2016, 
    title  = "IPhreeqcPy a python wrapper for IPhreeqc",
    author = "Ravi Patel", 
-   url    = "http://raviapatel.bitbucket.org/IPhreeqcPy",
+   url    = "http://raviapatel.bitbucket.io/IPhreeqcPy",
    year   = "2016 (accessed Sept 21, 2016)"  
    }
  
@@ -62,7 +52,7 @@ Hosted at
 +++++++++
 
 Source code is hosted on `bitbucket`_ and can be downloaded from
-`here <https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0-beta.tar.gz>`_.
+`here <https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0.0.tar.gz>`_.
 
 Installation
 ++++++++++++

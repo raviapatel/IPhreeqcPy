@@ -14,21 +14,7 @@ Developer
 
 Ravi A. Patel
 
-Scientific Collobrator
-
-Belgian Nuclear Reasearch Center (`SCK-CEN`_)
-
-Mol
-
-Belgium
-
-
-Contact me
-++++++++++
-
-email (work):rpatel@sckcen.be
-
-email (personal): ravee.a.patel@gmail.com
+email: ravee.a.patel@gmail.com
 
 
 Citation
@@ -49,7 +35,7 @@ If you are using `IPhreeqcPy`_ for academic work please cite this manual and `IP
 Hosted at
 +++++++++
 
-Source code is hosted on `bitbucket`_ and can be downloaded from `here <https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0-beta.tar.gz>`_.
+Source code is hosted on `bitbucket`_ and can be downloaded from `here <https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0.0.tar.gz>`_.
 
 
 License and Terms of use
