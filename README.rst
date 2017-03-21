@@ -28,7 +28,7 @@ Ravi A. Patel
 Contact me
 ++++++++++
 
-email (personal): ravee.a.patel@gmail.com
+email: ravee.a.patel@gmail.com
 
 
 Citation
