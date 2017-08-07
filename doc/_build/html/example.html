@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quick Start Example &mdash; IPhreeqcPy  documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="IPhreeqcPy  documentation" href="contents.html" />
+    <link rel="next" title="IPhreeqcPy Module" href="iphreeqc.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>IPhreeqcPy  documentation</span></a></h1>
+        <h2 class="heading"><span>Quick Start Example</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="install.html">Installation</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="iphreeqc.html">IPhreeqcPy Module</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="quick-start-example">
+<h1>Quick Start Example<a class="headerlink" href="#quick-start-example" title="Permalink to this headline">¶</a></h1>
+<p>This is a simple example to demonstrate use of IPhreeqcPy. This example is included as a test case in IPhreeqcPy.</p>
+<div class="code Python highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPhreeqcPy</span> <span class="kn">import</span> <span class="n">IPhreeqc</span>
+<span class="n">x</span><span class="o">=</span><span class="n">IPhreeqc</span><span class="p">()</span> <span class="c1">#initalize IPhreeqc object</span>
+<span class="n">x</span><span class="o">.</span><span class="n">LoadDatabase</span><span class="p">(</span><span class="s1">&#39;cemdata07.dat&#39;</span><span class="p">)</span> <span class="c1"># Load database</span>
+<span class="n">x</span><span class="o">.</span><span class="n">SetDumpStringOn</span><span class="p">()</span>   <span class="c1">#set DumpString output on</span>
+<span class="n">x</span><span class="o">.</span><span class="n">AccumulateLine</span><span class="p">(</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">solution 0-1</span>
+<span class="sd">-pH 7 charge</span>
+<span class="sd">-water 1.0</span>
+<span class="sd">Equilibrium phases 1</span>
+<span class="sd">portlandite 0 1</span>
+<span class="sd">save solution 1</span>
+<span class="sd">save Equilibrium phases 1</span>
+<span class="sd">save solution 0</span>
+<span class="sd">selected_output</span>
+<span class="sd">-file abstracted_model.xls</span>
+<span class="sd">-totals Ca Si</span>
+<span class="sd">-temp true</span>
+<span class="sd">-high_precision true</span>
+<span class="sd">-equilibrium_phases  portlandite</span>
+<span class="sd">Dump</span>
+<span class="sd">-all</span>
+<span class="sd">end</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span> <span class="c1"># Do some Phrqc input</span>
+<span class="n">x</span><span class="o">.</span><span class="n">RunAccumulated</span><span class="p">()</span> <span class="c1">#Run phreeqc</span>
+<span class="n">x</span><span class="o">.</span><span class="n">RunString</span><span class="p">(</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">use solution 1</span>
+<span class="sd">use Equilibrium phases 1</span>
+<span class="sd">use solution 0</span>
+<span class="sd">Advection</span>
+<span class="sd">-cells 1</span>
+<span class="sd">-shifts 10000</span>
+<span class="sd">-punch_frequency 500</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span> <span class="c1">#You can also run phreeqc like this</span>
+<span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">GetSelectedOutputArray</span><span class="p">()</span> <span class="c1">#get selected output</span>
+<span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">GetDumpString</span><span class="p">()</span> <span class="c1">#get dump string</span>
+</pre></div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="install.html">Installation</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="iphreeqc.html">IPhreeqcPy Module</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Ravi Patel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.
+    </div>
+  </body>
+</html>
