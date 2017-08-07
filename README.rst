@@ -28,7 +28,7 @@ Ravi A. Patel
 Contact me
 ++++++++++
 
-email: ravee.a.patel@gmail.com
+email (personal): ravee.a.patel@gmail.com
 
 
 Citation
@@ -52,17 +52,17 @@ Hosted at
 +++++++++
 
 Source code is hosted on `bitbucket`_ and can be downloaded from
-`here <https://bitbucket.io/raviapatel/iphreeqcpy/get/v1.0.0.tar.gz>`_.
+`here <https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0.0.tar.gz>`_.
 
 Installation
 ++++++++++++
 
 For detailed instructions on installation visit 
-`<http://raviapatel.bitbucket.io/IPhreeqcPy/install.html>`_
+`<http://raviapatel.bitbucket.org/IPhreeqcPy/install.html>`_
 
 Detailed Documentation
 +++++++++++++++++++++++
-For documentation visit  `<http://raviapatel.bitbucket.io/IPhreeqcPy/>`_
+For documentation visit  `<http://raviapatel.bitbucket.org/IPhreeqcPy/>`_
 
 License and Terms of use
 ++++++++++++++++++++++++
