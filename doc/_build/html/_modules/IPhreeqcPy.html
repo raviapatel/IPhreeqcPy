@@ -1,32 +1,30 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>IPhreeqcPy &mdash; IPhreeqcPy  documentation</title>
-    
+    <title>IPhreeqcPy &#8212; IPhreeqcPy  documentation</title>
     <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="IPhreeqcPy  documentation" href="../contents.html" />
-    <link rel="up" title="Module code" href="index.html" /> 
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
   </head>
-  <body role="document">
+  <body>
       <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
           <span>IPhreeqcPy  documentation</span></a></h1>
         <h2 class="heading"><span>IPhreeqcPy</span></h2>
@@ -58,7 +56,7 @@
 <span class="c1">#&gt;You should have received a copy of the GNU Lesser General Public License</span>
 <span class="c1">#&gt;along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 <span class="c1">#&gt;=============================================================================</span>
-
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
 <span class="kn">import</span> <span class="nn">ctypes</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -70,7 +68,7 @@
         <span class="sd">&quot;&quot;&quot;Compatibilty function for Python 3.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">str_</span>
-    <span class="nb">range</span> <span class="o">=</span> <span class="nb">xrange</span> 
+    <span class="nb">range</span> <span class="o">=</span> <span class="n">xrange</span> 
 
 
 <div class="viewcode-block" id="IPhreeqc"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc">[docs]</a><span class="k">class</span> <span class="nc">IPhreeqc</span><span class="p">():</span>
@@ -89,7 +87,7 @@
 <span class="sd">    and for windows visual studio 10 compilers are used. By default these compiled</span>
 <span class="sd">    files are used.         </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dll_path</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dll_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">dll_path</span><span class="p">:</span>
             <span class="n">system</span><span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">system</span> <span class="o">==</span> <span class="s1">&#39;Windows&#39;</span><span class="p">:</span>
@@ -100,7 +98,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Platform </span><span class="si">%s</span><span class="s1"> is not supported.&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span>
                 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-            <span class="n">dll_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="n">dll_name</span><span class="p">)</span>
+            <span class="n">dll_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">dll_name</span><span class="p">)</span>
         <span class="n">phreeqc</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="n">dll_path</span><span class="p">)</span>
         <span class="n">c_int</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span>
         <span class="c1">#map iphreeqc methods</span>
@@ -216,16 +214,16 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_AccumulateLine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-    </div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+    
 <div class="viewcode-block" id="IPhreeqc.RunAccumulated"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.RunAccumulated">[docs]</a>    <span class="k">def</span> <span class="nf">RunAccumulated</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run the input buffer as defined by calls to :func:`~IphreeqcPy.IPhreeqc.AccumulateLine`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_RunAccumulated</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-    </div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+    
 <div class="viewcode-block" id="IPhreeqc.AddError"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.AddError">[docs]</a>    <span class="k">def</span> <span class="nf">AddError</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phc_error_msg</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Appends the given error message and increments the error count. Internally</span>
@@ -240,8 +238,8 @@
         <span class="k">if</span> <span class="n">errors</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">phc_error_count</span> <span class="o">=</span> <span class="n">errors</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">phc_error_count</span> <span class="o">=</span> <span class="n">errors</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.AddWarning"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.AddWarning">[docs]</a>    <span class="k">def</span> <span class="nf">AddWarning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phc_warn_msg</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Appends the given warning message and increments the warning count.</span>
@@ -256,8 +254,8 @@
         <span class="k">if</span> <span class="n">errors</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">phc_warning_count</span> <span class="o">=</span> <span class="n">errors</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">phc_warning_count</span> <span class="o">=</span> <span class="n">errors</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.ClearAccumulatedLines"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.ClearAccumulatedLines">[docs]</a>    <span class="k">def</span> <span class="nf">ClearAccumulatedLines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Clear the accumlated input buffer. Input buffer is accumlated from</span>
@@ -265,8 +263,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ClearAccumulatedLines</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">GetSelectedOutputColumnCount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -282,16 +280,16 @@
         <span class="k">if</span> <span class="n">error_code</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_RaisePhreeqcError</span><span class="p">(</span><span class="n">error_code</span><span class="p">)</span>
         <span class="nb">id</span> <span class="o">=</span> <span class="n">error_code</span>
-        <span class="k">return</span> <span class="nb">id</span>
-</div>
+        <span class="k">return</span> <span class="nb">id</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.DestroyIPhreeqc"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.DestroyIPhreeqc">[docs]</a>    <span class="k">def</span> <span class="nf">DestroyIPhreeqc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Release an IPhreeqc instance from memory</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">error_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_DestroyIPhreeqc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">error_code</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaisePhreeqcError</span><span class="p">(</span><span class="n">error_code</span><span class="p">)</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaisePhreeqcError</span><span class="p">(</span><span class="n">error_code</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.GetComponent"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.GetComponent">[docs]</a>    <span class="k">def</span> <span class="nf">GetComponent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieves the given component</span>
@@ -304,8 +302,8 @@
         <span class="n">component</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_GetComponent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">component</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;No component for index </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">index</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">component</span>
-</div>
+        <span class="k">return</span> <span class="n">component</span></div>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">GetComponentCount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -323,8 +321,8 @@
 <span class="sd">            list with component names</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">get_component</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetComponent</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">get_component</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetComponentCount</span><span class="p">)]</span>
-</div>
+        <span class="k">return</span> <span class="p">[</span><span class="n">get_component</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetComponentCount</span><span class="p">)]</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.GetErrorString"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.GetErrorString">[docs]</a>    <span class="k">def</span> <span class="nf">GetErrorString</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieves the error messages from the last call to :func:`~IphreeqcPy.IPhreeqc.RunAccumulated`, </span>
@@ -336,8 +334,8 @@
 <span class="sd">        string        </span>
 <span class="sd">            Error string</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_GetErrorString</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_GetErrorString</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.GetSelectedOutputValue"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.GetSelectedOutputValue">[docs]</a>    <span class="k">def</span> <span class="nf">GetSelectedOutputValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get one value from selected output at given row and column</span>
@@ -367,11 +365,11 @@
         <span class="k">elif</span> <span class="n">type_</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">string_value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">type_</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">val</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">type_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">raise_error</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">error_code</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">val</span>
-</div>
+        <span class="k">return</span> <span class="n">val</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.GetSelectedOutputArray"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.GetSelectedOutputArray">[docs]</a>    <span class="k">def</span> <span class="nf">GetSelectedOutputArray</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get all values from selected output</span>
@@ -389,8 +387,8 @@
             <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncols</span><span class="p">):</span>
                 <span class="n">result_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetSelectedOutputValue</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">))</span>
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result_row</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">results</span>
-</div>
+        <span class="k">return</span> <span class="n">results</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.GetSelectedOutputRow"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.GetSelectedOutputRow">[docs]</a>    <span class="k">def</span> <span class="nf">GetSelectedOutputRow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get all values for one row from  selected output </span>
@@ -411,8 +409,8 @@
         <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncols</span><span class="p">):</span>
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetSelectedOutputValue</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">results</span>
-</div>
+        <span class="k">return</span> <span class="n">results</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.GetSelectedOutputCol"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.GetSelectedOutputCol">[docs]</a>    <span class="k">def</span> <span class="nf">GetSelectedOutputCol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get all values for one column from selected output</span>
@@ -433,20 +431,20 @@
         <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrows</span><span class="p">):</span>
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetSelectedOutputValue</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">results</span>
-</div>
+        <span class="k">return</span> <span class="n">results</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.SetSelectedOutputFileOff"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOff">[docs]</a>    <span class="k">def</span> <span class="nf">SetSelectedOutputFileOff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Turn on writing to selected output file </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_SetSelectedOutputFileOff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_SetSelectedOutputFileOff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.SetSelectedOutputFileOn"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOn">[docs]</a>    <span class="k">def</span> <span class="nf">SetSelectedOutputFileOn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Turn on writing to selected output file </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_SetSelectedOutputFileOn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_SetSelectedOutputFileOn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.LoadDatabase"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.LoadDatabase">[docs]</a>    <span class="k">def</span> <span class="nf">LoadDatabase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">database_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load a database with given file_name</span>
@@ -472,12 +470,12 @@
 <span class="sd">            * pitzer.dat</span>
 <span class="sd">            * wateq4f.dat</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">fpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span><span class="s1">&#39;databases&#39;</span><span class="p">,</span><span class="n">database_name</span><span class="p">)</span>
+        <span class="n">fpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span><span class="s1">&#39;databases&#39;</span><span class="p">,</span><span class="n">database_name</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span> 
             <span class="n">database_name</span><span class="o">=</span><span class="n">fpath</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">phc_database_error_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LoadDatabase</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">database_name</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">database_name</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.LoadDatabaseString"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.LoadDatabaseString">[docs]</a>    <span class="k">def</span> <span class="nf">LoadDatabaseString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Loads a database from a string</span>
@@ -488,8 +486,8 @@
 <span class="sd">            input database string</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">phc_database_error_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LoadDatabaseString</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">input_string</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)))</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">input_string</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)))</span></div>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">GetSelectedOutputRowCount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -509,8 +507,8 @@
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_RunString</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">cmd_string</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)))</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-    </div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+    
 <div class="viewcode-block" id="IPhreeqc.RunFile"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.RunFile">[docs]</a>    <span class="k">def</span> <span class="nf">RunFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Filename</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        run instructions from a file</span>
@@ -525,47 +523,47 @@
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_RunString</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">frun</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)))</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-            </div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+            
 <div class="viewcode-block" id="IPhreeqc.SetDumpFileOn"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.SetDumpFileOn">[docs]</a>    <span class="k">def</span> <span class="nf">SetDumpFileOn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the dump file switch on to write dump file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SetDumpFileOn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.SetDumpFileOff"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.SetDumpFileOff">[docs]</a>    <span class="k">def</span> <span class="nf">SetDumpFileOff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the dump file switch off  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SetDumpFileOff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.SetDumpStringOn"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.SetDumpStringOn">[docs]</a>    <span class="k">def</span> <span class="nf">SetDumpStringOn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the dump string switch on to get dump string</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SetDumpStringOn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-</div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="IPhreeqc.SetDumpStringOff"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.SetDumpStringOff">[docs]</a>    <span class="k">def</span> <span class="nf">SetDumpStringOff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the dump string switch off</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SetDumpStringOff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-            </div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_RaiseStringError</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+            
 <div class="viewcode-block" id="IPhreeqc.GetDumpString"><a class="viewcode-back" href="../iphreeqc.html#IPhreeqcPy.IPhreeqc.GetDumpString">[docs]</a>    <span class="k">def</span> <span class="nf">GetDumpString</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gives dump string as output</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_GetDumpString</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_GetDumpString</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div></div>
  
-</div></div>
+
 <span class="k">class</span> <span class="nc">_VARUNION</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Union</span><span class="p">):</span>
     <span class="c1"># pylint: disable-msg=R0903</span>
     <span class="c1"># no methods</span>
@@ -635,12 +633,13 @@
 <span class="sd">    -punch_frequency 500    </span>
 <span class="sd">    &quot;&quot;&quot;</span>    
     <span class="p">)</span>
-    <span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">GetSelectedOutputArray</span><span class="p">()</span>
-    <span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">GetDumpString</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">GetSelectedOutputArray</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">GetDumpString</span><span class="p">())</span>
     <span class="k">return</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">test</span><span class="p">()</span>
+
 </pre></div>
 
       </div>
@@ -653,8 +652,8 @@
       </div>
 
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Ravi Patel.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.
+        &#169; Copyright 2016, Ravi Patel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

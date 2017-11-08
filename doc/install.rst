@@ -8,8 +8,7 @@ windows
 
 * Install cmake which can be downloaded from https://cmake.org/. After installing make sure that path to cmake.exe is added to *path* in Environment variable otherwise you will get error *cmake not found*
 
-* Make sure visual studio 2010 is installed which can be downloaded from https://www.microsoft.com/en-us/download/details.aspx?id=23507
-
+* Install visual studio 17 which can be downloaded from https://www.visualstudio.com/
 
 * Open windows console and type following commands
 

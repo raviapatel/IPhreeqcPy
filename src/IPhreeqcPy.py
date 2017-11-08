@@ -14,12 +14,12 @@
 #>You should have received a copy of the GNU Lesser General Public License
 #>along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #>=============================================================================
-
+from __future__ import print_function
 import ctypes
 import os
 import sys
 import platform
-__version__ = 'v1.0.0'
+__version__ = '1.0.1'
 
 if sys.version_info[0] == 2:
     def bytes(str_, encoding):
@@ -591,8 +591,8 @@ def test():
     -punch_frequency 500    
     """    
     )
-    print x.GetSelectedOutputArray()
-    print x.GetDumpString()
+    print( x.GetSelectedOutputArray())
+    print( x.GetDumpString())
     return
 
 if __name__ == '__main__':

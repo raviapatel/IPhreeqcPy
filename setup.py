@@ -15,7 +15,7 @@
 #>You should have received a copy of the GNU Lesser General Public License
 #>along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #>=============================================================================
-
+from __future__ import print_function
 import subprocess
 import os,sys
 import zipfile 
@@ -37,7 +37,6 @@ class CompilePhrqc(install):
             windows_compile()
         else:
             raise  ValueError('Installation not supported for %s'%platform.system())
-        print os.getcwd()
         install.run(self)
             
 def list_extra_data(
@@ -75,8 +74,12 @@ def windows_compile():
     os.chdir('iphreeqc_src')    
     zipfile.ZipFile(f+'.zip').extractall()
     os.chdir(f)    
-    subprocess.call('cmake -G "Visual Studio 10 2010" "..\%s"'%f, shell=True)
-    subprocess.call('cmake --build . --config Release', shell=True)
+    if platform.architecture()[0]=='64bit':
+        subprocess.call('cmake -G "Visual Studio 15 2017 Win64" "..\%s"'%f, shell=True)
+        subprocess.call('cmake --build . --config Release', shell=True)
+    if platform.architecture()[0]=='32bit':
+        subprocess.call('cmake -G "Visual Studio 10 2017" "..\%s"'%f, shell=True)
+        subprocess.call('cmake --build . --config Release', shell=True)    
     shutil.copy(join(os.getcwd(),'Release','IPhreeqc.dll'),join('..','..'))
     os.chdir(join('..','..'))
 
