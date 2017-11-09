@@ -28,7 +28,7 @@ from numpy.distutils.core import setup
 from numpy.distutils.command.install import install
 sys.path.append('./src')
 import IPhreeqcPy
-            
+v=IPhreeqcPy.__version__
 class CompilePhrqc(install):
     def run(self):
         if platform.system() == 'Linux':
@@ -102,11 +102,12 @@ def linux_compile():
 def run_setup():
     data=[]
     data.extend(list_extra_data('databases'))
+    data.extend(list_extra_data('iphreeqc_src'))
+    data.append('README.rst')
     if platform.system() == 'Linux':
         data.append(join('libiphreeqc.so'))
     elif platform.system() == 'Windows':
         data.append(join('IPhreeqc.dll'))
-    v=IPhreeqcPy.__version__
     setup(
         cmdclass={'install': CompilePhrqc},
         name='IPhreeqcPy',
@@ -114,15 +115,15 @@ def run_setup():
         author = 'Ravi A. Patel',
         author_email = 'ravee.a.patel@gmail.com',
         download_url = 'http://raviapatel.bitbucket.org/IPhreeqcPy' ,
-        url='https://bitbucket.org/raviapatel/iphreeqcpy/get/v1.0.0.tar.gz',
+        url='https://bitbucket.org/raviapatel/iphreeqcpy/get/1.0.1.tar.gz',
         license='LGPL V3',
         description='Python wrapper for Iphreeqc',
         long_description=open('README.rst').read(),
-   	package_dir={'': 'src'},
+        package_dir={'': 'src'},
         py_modules = ['IPhreeqcPy'],
         data_files=data,
         platforms=['Windows','Linux'],
-        install_requires=['numpy'],
+#        install_requires=['numpy'],
         classifiers=[
             'Intended Audience :: Developers',
             'Intended Audience :: Science/Research',
@@ -132,7 +133,6 @@ def run_setup():
             'Programming Language :: Python :: 2.7',
             'Programming Language :: Python :: 3.3',
             'Intended Audience :: Science/Research',
-            'Topic :: Scientific/Engineering :: Chemistry',
          ]
     )
     
