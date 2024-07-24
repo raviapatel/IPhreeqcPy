@@ -19,15 +19,7 @@ import ctypes
 import os
 import sys
 import platform
-__version__ = '1.0.2'
-
-if sys.version_info[0] == 2:
-    def bytes(str_, encoding):
-        """Compatibilty function for Python 3.
-        """
-        return str_
-    range = xrange 
-
+__version__ = '24.0.0'
 
 class IPhreeqc():
     """
