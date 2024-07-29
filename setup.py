@@ -52,7 +52,7 @@ def get_pkg_data():
     current_path = os.path.dirname(__file__)
     output = {"":[]}
     for _,_, files in os.walk(os.path.join(current_path,'databases')):
-        output[""].append([os.path.join('databases',f) for f in files])
+        output[""].extend([os.path.join('databases',f) for f in files])
     if platform.system() == 'Linux':
         output[""].append('libiphreeqc.so')
     elif platform.system() == 'Windows':
