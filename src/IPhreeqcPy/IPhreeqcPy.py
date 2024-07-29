@@ -19,7 +19,7 @@ import ctypes
 import os
 import sys
 import platform
-__version__ = "1.0.2"
+__version__ = "v24.0.0"
 
 class IPhreeqc():
     """
@@ -48,7 +48,7 @@ class IPhreeqc():
             else:
                 msg = 'Platform %s is not supported.' % sys.platform
                 raise NotImplementedError(msg)
-            dll_path = os.path.join(os.path.dirname(__file__), dll_name)
+            dll_path = os.path.join(os.path.dirname(__file__),"lib" , dll_name)
         phreeqc = ctypes.cdll.LoadLibrary(dll_path)
         c_int = ctypes.c_int
         #map iphreeqc methods

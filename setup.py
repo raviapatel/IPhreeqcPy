@@ -23,8 +23,8 @@ import platform
 import shutil
 from os import  listdir
 from os.path import join, isfile, splitext 
-from distutils.core import setup
-from distutils.command.install import install
+from setuptools import setup, find_namespace_packages
+from setuptools.command.install import install
 import io
 sys.path.append('./src')
 import re
@@ -40,24 +40,11 @@ def get_latest_git_version()->str:
 
 def update_version_in_file(version:str):
     """Update the version in the IPhreeqcPy.py file"""
-    with open('src/IPhreeqcPy.py', 'r') as file:
+    with open('src/IPhreeqcPy/IPhreeqcPy.py', 'r') as file:
         filedata = file.read()
     filedata = re.sub(r'__version__ = "[^"]+"', f'__version__ = "{version}"', filedata)
-    with open('src/IPhreeqcPy.py', 'w') as file:
+    with open('src/IPhreeqcPy/IPhreeqcPy.py', 'w') as file:
         file.write(filedata)
-
-
-def get_pkg_data():
-    """List all files and directories in the parent folder which are to be included as data in the package"""
-    current_path = os.path.dirname(__file__)
-    output = {"":[]}
-    for _,_, files in os.walk(os.path.join(current_path,'databases')):
-        output[""].extend([os.path.join('databases',f) for f in files])
-    if platform.system() == 'Linux':
-        output[""].append('libiphreeqc.so')
-    elif platform.system() == 'Windows':
-        output[""].append('IPhreeqc.dll')
-    return output
     
 class CompilePhrqc(install):
     """Custom install command to compile the IPhreeqc.dll for windows and libiphreeqc.so for linux"""
@@ -69,6 +56,8 @@ class CompilePhrqc(install):
             "win": "https://water.usgs.gov/water-resources/software/PHREEQC/iphreeqc-3.7.3-15968.zip",
             "linux":"https://water.usgs.gov/water-resources/software/PHREEQC/iphreeqc-3.7.3-15968.tar.gz"
         }
+        current_path = os.path.abspath(os.getcwd())
+        os.mkdir(join(current_path,'src','IPhreeqcPy','lib'))
         if platform.system() == 'Linux':
             self._linux_compile(iphreeqc_urls['linux'])
         elif platform.system() == 'Windows':
@@ -92,7 +81,8 @@ class CompilePhrqc(install):
             subprocess.call('cmake -G "Visual Studio 16 2019" -A Win32   -DBUILD_SHARED_LIBS=ON', shell=True)
             subprocess.call('cmake --build . --config Release', shell=True)  
         os.chdir(join("..",".."))  
-        shutil.copy(join(fpath,'Release','IPhreeqc.dll'),".")
+        current_path = os.path.abspath(os.getcwd())
+        shutil.copy(join(fpath,'Release','IPhreeqc.dll'),os.path.join(current_path,'src','IPhreeqcPy','lib'))
 
     def _linux_compile(self,phreeqc_url:str):
         """Compile the libiphreeqc.so for linux"""
@@ -107,7 +97,8 @@ class CompilePhrqc(install):
         subprocess.call('make check', shell=True)
         subprocess.call('make install', shell=True)
         os.chdir(join('..','..'))
-        shutil.copy(join(fpath,'lib','libiphreeqc.so'),".")
+        current_path = os.path.abspath(os.getcwd())
+        shutil.copy(join(fpath,'lib','libiphreeqc.so'),os.path.join(current_path,'src','IPhreeqcPy','lib'))
 
     @staticmethod
     def download_and_unzip(link:str):
@@ -143,9 +134,13 @@ def run_setup():
             'Documentation': 'https://iphreeqcpy.readthedocs.io/en/latest/',
             'Source': 'https://github.com/raviapatel/IPhreeqcPy/tree/main',
         },
-        py_modules = ['IPhreeqcPy'],
-        package_data=get_pkg_data(),
+        packages = find_namespace_packages('src'),
+        package_data={
+            "IPhreeqcPy.lib": ["*.dll","*.so"],
+            "IPhreeqcPy.databases": ["*.dat"],
+        },
         platforms=['Windows','Linux'],
+        package_dir={'': 'src'},
         include_package_data=True,
         install_requires=[
             "numpy",

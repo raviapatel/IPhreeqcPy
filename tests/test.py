@@ -42,3 +42,7 @@ class TestIPhreeqcPy(TestCase):
         """    
         ) #You can also run phreeqc like this
         self.assertEqual(1,1) 
+    
+if __name__ == '__main__':
+    from unittest import main
+    main()
