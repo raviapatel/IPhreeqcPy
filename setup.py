@@ -134,9 +134,9 @@ def run_setup():
     data.extend(list_extra_data('databases'))
     data.append((current_path,['README.rst']))
     if platform.system() == 'Linux':
-        data.append((current_path,['libiphreeqc.so']))
+        data.append(join('libiphreeqc.so'))
     elif platform.system() == 'Windows':
-        data.append((current_path,['IPhreeqc.dll']))
+        data.append(join('IPhreeqc.dll'))
     # Run the setup function
     setup(
         cmdclass={'install': CompilePhrqc},
