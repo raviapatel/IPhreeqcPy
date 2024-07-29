@@ -1,4 +1,4 @@
 requests
 numpy
-wheels
+wheel
 setuptools

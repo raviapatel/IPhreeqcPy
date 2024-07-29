@@ -157,7 +157,7 @@ def run_setup():
         install_requires=[
             "requests",
             "numpy",
-            "wheels",
+            "wheel",
             "setuptools",
         ],
         python_requires = ">=3.0",
