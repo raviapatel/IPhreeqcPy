@@ -21,8 +21,7 @@ import zipfile
 import tarfile
 import platform
 import shutil
-from os import  listdir
-from os.path import join, isfile, splitext 
+from os.path import join
 from setuptools import setup, find_namespace_packages
 from setuptools.command.install import install
 import io
@@ -57,6 +56,8 @@ class CompilePhrqc(install):
             "linux":"https://water.usgs.gov/water-resources/software/PHREEQC/iphreeqc-3.7.3-15968.tar.gz"
         }
         current_path = os.path.abspath(os.getcwd())
+        if  os.path.exists(join(current_path,'src','IPhreeqcPy','lib')):
+            shutil.rmtree(join(current_path,'src','IPhreeqcPy','lib'))
         os.mkdir(join(current_path,'src','IPhreeqcPy','lib'))
         if platform.system() == 'Linux':
             self._linux_compile(iphreeqc_urls['linux'])
@@ -71,7 +72,7 @@ class CompilePhrqc(install):
         #add line to unzip iphreeqc
         self.download_and_unzip(phreeqc_url)
         fpath= ".".join(phreeqc_url.split('/')[-1].split('.')[:-1])
-        fpath= os.path.join('phreeqc',fpath)
+        fpath= join('phreeqc',fpath)
         os.chdir(fpath)    
         if platform.architecture()[0]=='64bit':
             print("64 bit")
@@ -89,7 +90,7 @@ class CompilePhrqc(install):
         #add line to unzip iphreeqc
         self.download_and_unzip(phreeqc_url)
         fpath= ".".join(phreeqc_url.split('/')[-1].split('.')[:-2])
-        fpath= os.path.join('phreeqc',fpath)
+        fpath= join('phreeqc',fpath)
         os.chdir(fpath)    
         current_path = os.path.abspath(os.getcwd())
         subprocess.call(f'./configure --prefix={current_path} --exec-prefix={current_path}',shell=True)
@@ -98,7 +99,7 @@ class CompilePhrqc(install):
         subprocess.call('make install', shell=True)
         os.chdir(join('..','..'))
         current_path = os.path.abspath(os.getcwd())
-        shutil.copy(join(fpath,'lib','libiphreeqc.so'),os.path.join(current_path,'src','IPhreeqcPy','lib'))
+        shutil.copy(join(fpath,'lib','libiphreeqc.so'),join(current_path,'src','IPhreeqcPy','lib'))
 
     @staticmethod
     def download_and_unzip(link:str):
@@ -136,7 +137,8 @@ def run_setup():
         },
         packages = find_namespace_packages('src'),
         package_data={
-            "IPhreeqcPy.lib": ["*.dll","*.so"],
+            "IPhreeqcPy.lib": ["*.dll"],
+            "IPhreeqcPy.lib": ["*.so"],
             "IPhreeqcPy.databases": ["*.dat"],
         },
         platforms=['Windows','Linux'],
