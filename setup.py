@@ -157,6 +157,8 @@ def run_setup():
         install_requires=[
             "requests",
             "numpy",
+            "wheels",
+            "setuptools",
         ],
         python_requires = ">=3.0",
         classifiers=[
