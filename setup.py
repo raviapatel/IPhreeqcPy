@@ -47,16 +47,17 @@ def update_version_in_file(version:str):
         file.write(filedata)
 
 
-def list_extra_data(parent_folder):
+def get_pkg_data():
     """List all files and directories in the parent folder which are to be included as data in the package"""
-    result = {'dirs': [], 'files': []}
-    for root, dirs, files in os.walk(parent_folder):
-        # Filter out directories containing "_ignore"
-        dirs[:] = [d for d in dirs if "_ignore" not in d]
-        result['dirs'].append(root)
-        filtered_files = [os.path.join(root, fname) for fname in files if "_ignore" not in fname]
-        result['files'].append(filtered_files)
-    return zip(result['dirs'], result['files'])
+    current_path = os.path.dirname(__file__)
+    output = {"":[]}
+    for _,_, files in os.walk(os.path.join(current_path,'databases')):
+        output[""].append([os.path.join('databases',f) for f in files])
+    if platform.system() == 'Linux':
+        output[""].append('libiphreeqc.so')
+    elif platform.system() == 'Windows':
+        output[""].append('IPhreeqc.dll')
+    return output
     
 class CompilePhrqc(install):
     """Custom install command to compile the IPhreeqc.dll for windows and libiphreeqc.so for linux"""
@@ -128,15 +129,6 @@ def run_setup():
     # Get the latest git version and update the version in the IPhreeqcPy.py file
     v  = get_latest_git_version()
     update_version_in_file(v)
-    # List all the data files to be included in the package
-    current_path = os.path.join(os.path.dirname(__file__))
-    data=[]
-    data.extend(list_extra_data('databases'))
-    data.append((current_path,['README.rst']))
-    if platform.system() == 'Linux':
-        data.append(join(current_path,'libiphreeqc.so'))
-    elif platform.system() == 'Windows':
-        data.append(join(current_path,'IPhreeqc.dll'))
     # Run the setup function
     setup(
         cmdclass={'install': CompilePhrqc},
@@ -151,9 +143,8 @@ def run_setup():
             'Documentation': 'https://iphreeqcpy.readthedocs.io/en/latest/',
             'Source': 'https://github.com/raviapatel/IPhreeqcPy/tree/main',
         },
-        package_dir={'': 'src'},
         py_modules = ['IPhreeqcPy'],
-        data_files=data,
+        package_data=get_pkg_data(),
         platforms=['Windows','Linux'],
         include_package_data=True,
         install_requires=[
