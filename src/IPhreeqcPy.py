@@ -19,7 +19,7 @@ import ctypes
 import os
 import sys
 import platform
-__version__ = '24.0.0'
+__version__ = "1.0.2"
 
 class IPhreeqc():
     """
