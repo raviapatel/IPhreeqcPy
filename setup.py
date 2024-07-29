@@ -131,9 +131,9 @@ def run_setup():
     # List all the data files to be included in the package
     data=[]
     data.extend(list_extra_data('databases'))
-    data.append(("",['README.rst']))
+    data.append((".",['README.rst']))
     if platform.system() == 'Linux':
-        data.append(("",['libiphreeqc.so']))
+        data.append((".",['libiphreeqc.so']))
     elif platform.system() == 'Windows':
         data.append(("",['IPhreeqc.dll']))
     # Run the setup function
@@ -154,11 +154,9 @@ def run_setup():
         py_modules = ['IPhreeqcPy'],
         data_files=data,
         platforms=['Windows','Linux'],
+        include_package_data=True,
         install_requires=[
-            "requests",
             "numpy",
-            "wheel",
-            "setuptools",
         ],
         python_requires = ">=3.0",
         classifiers=[
