@@ -129,13 +129,14 @@ def run_setup():
     v  = get_latest_git_version()
     update_version_in_file(v)
     # List all the data files to be included in the package
+    current_path = os.path.join(os.path.dirname(__file__))
     data=[]
     data.extend(list_extra_data('databases'))
-    data.append((".",['README.rst']))
+    data.append((current_path,['README.rst']))
     if platform.system() == 'Linux':
-        data.append((".",['libiphreeqc.so']))
+        data.append((current_path,['libiphreeqc.so']))
     elif platform.system() == 'Windows':
-        data.append(("",['IPhreeqc.dll']))
+        data.append((current_path,['IPhreeqc.dll']))
     # Run the setup function
     setup(
         cmdclass={'install': CompilePhrqc},
