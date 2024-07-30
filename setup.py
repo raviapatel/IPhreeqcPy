@@ -22,8 +22,7 @@ import tarfile
 import platform
 import shutil
 from os.path import join
-from setuptools import setup, find_namespace_packages
-from setuptools.command.install import install
+from setuptools import setup, find_namespace_packages, Command
 import io
 sys.path.append('./src')
 import re
@@ -45,9 +44,13 @@ def update_version_in_file(version:str):
     with open('src/IPhreeqcPy/IPhreeqcPy.py', 'w') as file:
         file.write(filedata)
     
-class CompilePhrqc(install):
+class CompilePhrqc(Command):
+    user_options = []
+    def initialize_options(self):
+        pass
+    def finalize_options(self):
+        pass
     """Custom install command to compile the IPhreeqc.dll for windows and libiphreeqc.so for linux"""
-
     def run(self):
         """Run the install command"""
         # URLs for the IPhreeqc source code for windows and linux. Update when new versions released
@@ -56,17 +59,30 @@ class CompilePhrqc(install):
             "linux":"https://water.usgs.gov/water-resources/software/PHREEQC/iphreeqc-3.7.3-15968.tar.gz"
         }
         current_path = os.path.abspath(os.getcwd())
+        build_exists = False
         if  os.path.exists(join(current_path,'src','IPhreeqcPy','lib')):
-            shutil.rmtree(join(current_path,'src','IPhreeqcPy','lib'))
-        os.mkdir(join(current_path,'src','IPhreeqcPy','lib'))
-        if platform.system() == 'Linux':
-            self._linux_compile(iphreeqc_urls['linux'])
-        elif platform.system() == 'Windows':
-            self._windows_compile(iphreeqc_urls['win'])
+            if (platform.system() == 'Linux'and
+                os.path.exists(join(current_path,'src','IPhreeqcPy','lib','libiphreeqc.so'))
+                ):
+                    build_exists = True
+            elif (platform.system() == 'Windows' and
+                  os.path.exists(join(current_path,'src','IPhreeqcPy','lib','IPhreeqc.dll'))
+                ):
+                    build_exists = True
+            else:
+                shutil.rmtree(join(current_path,'src','IPhreeqcPy','lib'))
+        # If the build does not exist, compile the IPhreeqc.dll for windows or libiphreeqc.so for linux
+        if not build_exists:
+            os.mkdir(join(current_path,'src','IPhreeqcPy','lib'))
+            if platform.system() == 'Linux':
+                self._linux_compile(iphreeqc_urls['linux'])
+            elif platform.system() == 'Windows':
+                self._windows_compile(iphreeqc_urls['win'])
+            else:
+                raise  ValueError(f'Installation not supported for {platform.system()}')
+            return
         else:
-            raise  ValueError(f'Installation not supported for {platform.system()}')
-        install.run(self)
-
+            return
     def _windows_compile(self,phreeqc_url:str):
         """Compile the IPhreeqc.dll for windows"""
         #add line to unzip iphreeqc
@@ -118,12 +134,12 @@ class CompilePhrqc(install):
 
 def run_setup():
     """Run the setup function"""
+    current_path = os.path.abspath(os.getcwd())
     # Get the latest git version and update the version in the IPhreeqcPy.py file
     v  = get_latest_git_version()
     update_version_in_file(v)
     # Run the setup function
     setup(
-        cmdclass={'install': CompilePhrqc},
         name='IPhreeqcPy',
         version=v,
         author = 'Ravi A. Patel',
@@ -134,6 +150,9 @@ def run_setup():
         project_urls={
             'Documentation': 'https://iphreeqcpy.readthedocs.io/en/latest/',
             'Source': 'https://github.com/raviapatel/IPhreeqcPy/tree/main',
+        },
+        cmdclass={
+            'compile_phreeqc': CompilePhrqc,
         },
         packages = find_namespace_packages('src'),
         package_data={
@@ -165,7 +184,6 @@ def run_setup():
     )
     
 if __name__ == '__main__':
-
     run_setup()
     
     

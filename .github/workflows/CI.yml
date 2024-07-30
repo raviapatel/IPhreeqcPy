@@ -41,6 +41,7 @@ jobs:
 
     - name: Install the package
       run: |
+        python setup.py compile_phreeqc
         pip install . -vvv
 
     - name: Run tests
