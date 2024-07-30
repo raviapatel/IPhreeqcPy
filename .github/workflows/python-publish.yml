@@ -35,7 +35,7 @@ jobs:
     - name: Install Visual Studio Build Tools
       if: runner.os == 'Windows'
       run: |
-        conda install -c anaconda vs2019_win-64
+        conda install -c conda-forge vs2019_win-64
         pip install cmake
       shell: powershell
 

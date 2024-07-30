@@ -35,7 +35,7 @@ jobs:
     - name: Install Visual Studio 2019 on Windows
       if: runner.os == 'Windows'
       run: |
-        conda install -c anaconda vs2019_win-64
+        conda install -c conda-forge vs2019_win-64
 
     - name: Install CMake on Windows
       if: runner.os == 'Windows'
