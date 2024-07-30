@@ -156,8 +156,7 @@ def run_setup():
         },
         packages = find_namespace_packages('src'),
         package_data={
-            "IPhreeqcPy.lib": ["*.dll"],
-            "IPhreeqcPy.lib": ["*.so"],
+            "IPhreeqcPy.lib": ["*.dll","*.so"],
             "IPhreeqcPy.databases": ["*.dat"],
         },
         platforms=['Windows','Linux'],
