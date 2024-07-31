@@ -51,9 +51,19 @@ jobs:
     - name: Install Phreeqc
       run: python setup.py compile_phreeqc
 
-    - name: Build wheel
-      run: python setup.py bdist_wheel --plat-name ${{ matrix.os }} --python-tag=${{ matrix.python-version }}
-
+    - name: Set platform tag
+      id: set-platform-tag
+      run: |
+        if [[ "${{ runner.os }}" == "Linux" ]]; then
+          echo "::set-output name=plat-name::manylinux2014_x86_64"
+        elif [[ "${{ runner.os }}" == "Windows" ]]; then
+          echo "::set-output name=plat-name::win_amd64"
+        else
+          echo "::set-output name=plat-name::unknown"
+        fi
+    
+        - name: Build wheel
+        run: python setup.py bdist_wheel --plat-name ${{ steps.set-platform-tag.outputs.plat-name }} --python-tag=${{ matrix.python-version }}
     - name: Upload wheel to artifact
       uses: actions/upload-artifact@v2
       with:
