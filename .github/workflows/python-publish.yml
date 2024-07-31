@@ -56,7 +56,7 @@ jobs:
       shell: pwsh
       run: |
         if ($env:RUNNER_OS -eq "Linux") {
-          echo "::set-output name=plat-name::manylinux_x86_64"
+          echo "::set-output name=plat-name::manylinux2014_x86_64"
         } elseif ($env:RUNNER_OS -eq "Windows") {
           echo "::set-output name=plat-name::win_amd64"
         } else {
