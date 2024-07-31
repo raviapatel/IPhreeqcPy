@@ -1,4 +1,4 @@
-# IPhreeqcPy
+# IPhreeqcPy [![CI](https://github.com/raviapatel/IPhreeqcPy/actions/workflows/CI.yml/badge.svg)](https://github.com/raviapatel/IPhreeqcPy/actions/workflows/CI.yml)
 
 [IPhreeqcPy](https://github.com/raviapatel/IPhreeqcPy) provides a wrapper to communicate with [IPhreeqc](http://wwwbrr.cr.usgs.gov/projects/GWC_coupled/phreeqc/) in [python](https://www.python.org/). It is an alternative to [PhreeqPy](http://www.phreeqpy.com/) and is derived from PhreeqcPy. One of the drawback of PhreeqcPy was that it used pythonic names spaces for IPhreeqc function calls which made Phreeqpy function calls different from IPhreeqc and has IPhreeqc manual couldnot be referred to. Secondly it did not have automated compilation for IPhreeqc during installation. As PhreeqPy is an open source I took further liberty to address this issue and redistribute it as IPhreeqcPy to avoid conflicts with development of PhreeqPy. Moreover more Iphreeqc function calls are included in
 IPhrereqcPy e.g. function calls related to dump which can be of use while restarting simulations.
@@ -18,6 +18,7 @@ IPhreeqcPy for academic
 work please cite this manual and
 IPhreeqcPy repository in
 your publications. Below is the bibtex format for citing IPhreeqcPy
+
     @manual{Patel2024, 
     title  = "IPhreeqcPy a python wrapper for IPhreeqc",
     author = "Ravi Patel", 
