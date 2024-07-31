@@ -52,29 +52,29 @@ jobs:
       run: python setup.py compile_phreeqc
 
     - name: Set platform tag
-    id: set-platform-tag
-    shell: pwsh
-    run: |
-      if ($env:RUNNER_OS -eq "Linux") {
-        echo "::set-output name=plat-name::manylinux2014_x86_64"
-      } elseif ($env:RUNNER_OS -eq "Windows") {
-        echo "::set-output name=plat-name::win_amd64"
-      } else {
-        echo "::set-output name=plat-name::unknown"
-      }
+      id: set-platform-tag
+      shell: pwsh
+      run: |
+        if ($env:RUNNER_OS -eq "Linux") {
+          echo "::set-output name=plat-name::manylinux2014_x86_64"
+        } elseif ($env:RUNNER_OS -eq "Windows") {
+          echo "::set-output name=plat-name::win_amd64"
+        } else {
+          echo "::set-output name=plat-name::unknown"
+        }
     
     - name: Build wheel
-    run: python setup.py bdist_wheel --plat-name ${{ steps.set-platform-tag.outputs.plat-name }} --python-tag=3.10
-    shell: pwsh
-    env:
-      INPUT_RUN_POST: true
-      CONDA_PKGS_DIR: C:\Users\runneradmin\conda_pkgs_dir
-
+      run: python setup.py bdist_wheel --plat-name ${{ steps.set-platform-tag.outputs.plat-name }} --python-tag=3.10
+      shell: pwsh
+      env:
+        INPUT_RUN_POST: true
+        CONDA_PKGS_DIR: C:\Users\runneradmin\conda_pkgs_dir
+        
     - name: Upload wheel to artifact
-    uses: actions/upload-artifact@v2
-    with:
-      name: wheel-${{ runner.os }}
-      path: dist/*.whl
+      uses: actions/upload-artifact@v2
+      with:
+        name: wheel-${{ runner.os }}
+        path: dist/*.whl
 
   deploy:
     runs-on: ubuntu-latest
