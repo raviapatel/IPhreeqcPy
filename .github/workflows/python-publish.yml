@@ -65,10 +65,6 @@ jobs:
     
     - name: Build wheel
       run: python setup.py bdist_wheel --plat-name ${{ steps.set-platform-tag.outputs.plat-name }} --python-tag=3.10
-      shell: pwsh
-      env:
-        INPUT_RUN_POST: true
-        CONDA_PKGS_DIR: C:\Users\runneradmin\conda_pkgs_dir
         
     - name: Upload wheel to artifact
       uses: actions/upload-artifact@v2
