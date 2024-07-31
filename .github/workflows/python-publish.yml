@@ -52,7 +52,7 @@ jobs:
       run: python setup.py compile_phreeqc
 
     - name: Build wheel
-      run: python setup.py bdist_wheel
+      run: python setup.py bdist_wheel --plat-name ${{ runner.os }} --python-tag=${{ matrix.python-version }}
 
     - name: Upload wheel to artifact
       uses: actions/upload-artifact@v2
