@@ -39,7 +39,11 @@ for installation for source read the [documentation](https://iphreeqcpy.readthed
 
 ## Detailed Documentation
 
-For documentation visit <http://raviapatel.bitbucket.org/IPhreeqcPy/>
+For documentation visit <https://iphreeqcpy.readthedocs.io/en/latest>
+
+## Issues
+
+report issues on [Github](https://iphreeqcpy.readthedocs.io/en/latest) and I will try to answer/resolve them 
 
 ## License and Terms of use
 
