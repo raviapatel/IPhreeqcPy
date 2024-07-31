@@ -90,10 +90,16 @@ jobs:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        for file in dist/windows/*.whl dist/linux/*.whl; do
-          if ! twine check $file; then
-            twine upload $file
+        for file in dist/**/*.whl; do
+          if twine check $file; then
+            PACKAGE_NAME=$(basename $file | sed -E 's/(.*)-([0-9]+.*)-.*/\1/')
+            PACKAGE_VERSION=$(basename $file | sed -E 's/.*-([0-9]+.*)-.*/\1/')
+            if ! curl -s -f https://pypi.org/project/$PACKAGE_NAME/$PACKAGE_VERSION/ > /dev/null; then
+              twine upload $file
+            else
+              echo "$file already exists on PyPI. Skipping upload."
+            fi
           else
-            echo "$file already exists on PyPI. Skipping upload."
+            echo "$file failed the check. Skipping upload."
           fi
         done
