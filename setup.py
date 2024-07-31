@@ -146,7 +146,7 @@ def run_setup():
         author_email = 'ravee.a.patel@gmail.com',
         license='LGPL V3',
         description='Python wrapper for Iphreeqc',
-        long_description=open('README.rst').read(),
+        long_description=open('README.md').read(),
         project_urls={
             'Documentation': 'https://iphreeqcpy.readthedocs.io/en/latest/',
             'Source': 'https://github.com/raviapatel/IPhreeqcPy/tree/main',

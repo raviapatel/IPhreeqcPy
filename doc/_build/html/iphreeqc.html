@@ -1,404 +1,465 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPhreeqcPy Module &mdash; IPhreeqcPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>IPhreeqcPy Module &#8212; IPhreeqcPy  documentation</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Quick Start Example" href="example.html" /> 
-  </head>
-  <body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>IPhreeqcPy  documentation</span></a></h1>
-        <h2 class="heading"><span>IPhreeqcPy Module</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="example.html">Quick Start Example</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="contents.html">Contents</a>
-        </p>
+</head>
 
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="contents.html" class="icon icon-home">
+            IPhreeqcPy
+          </a>
+              <div class="version">
+                24.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">IPhreeqcPy</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#developer">Developer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#citation">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#hosted-at">Hosted at</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#license-and-terms-of-use">License and Terms of use</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents:</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example.html">Quick Start Example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IPhreeqcPy Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc"><code class="docutils literal notranslate"><span class="pre">IPhreeqc</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Quick Start Example</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IPhreeqcPy Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc"><code class="docutils literal notranslate"><span class="pre">IPhreeqc</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.AccumulateLine"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.AccumulateLine()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.AddError"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.AddError()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.AddWarning"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.AddWarning()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.ClearAccumulatedLines"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.ClearAccumulatedLines()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.CreateIPhreeqc"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.CreateIPhreeqc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.DestroyIPhreeqc"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.DestroyIPhreeqc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetComponent"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetComponent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetComponentCount"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetComponentCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetComponentList"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetComponentList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetDumpString"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetDumpString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetErrorString"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetErrorString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputArray"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetSelectedOutputArray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputCol"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetSelectedOutputCol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputColumnCount"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetSelectedOutputColumnCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputRow"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetSelectedOutputRow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputRowCount"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetSelectedOutputRowCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputValue"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.GetSelectedOutputValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.LoadDatabase"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.LoadDatabase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.LoadDatabaseString"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.LoadDatabaseString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.RunAccumulated"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.RunAccumulated()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.RunFile"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.RunFile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.RunString"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.RunString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.SetDumpFileOff"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.SetDumpFileOff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.SetDumpFileOn"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.SetDumpFileOn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.SetDumpStringOff"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.SetDumpStringOff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.SetDumpStringOn"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.SetDumpStringOn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOff"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.SetSelectedOutputFileOff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOn"><code class="docutils literal notranslate"><span class="pre">IPhreeqc.SetSelectedOutputFileOn()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
       </div>
-      <div class="content">
-        
-        
-  <div class="section" id="iphreeqcpy-module">
-<h1>IPhreeqcPy Module<a class="headerlink" href="#iphreeqcpy-module" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="IPhreeqcPy.IPhreeqc">
-<em class="property">class </em><code class="descclassname">IPhreeqcPy.</code><code class="descname">IPhreeqc</code><span class="sig-paren">(</span><em>dll_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc" title="Permalink to this definition">¶</a></dt>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">IPhreeqcPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">IPhreeqcPy</a></li>
+      <li class="breadcrumb-item active">IPhreeqcPy Module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="iphreeqcpy-module">
+<h1>IPhreeqcPy Module<a class="headerlink" href="#iphreeqcpy-module" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">IPhreeqcPy.</span></span><span class="sig-name descname"><span class="pre">IPhreeqc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dll_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc" title="Permalink to this definition"></a></dt>
 <dd><p>Python wrapper for the compiled IPhreeqc.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>(</strong><strong>optional</strong><strong>) </strong><strong>string</strong> (<em>dll_path</em>) – path for the iphreeqc compiled library .dll for windows or .so for linux</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>dll_path</em><em>  (</em><em>optional</em><em>)</em>) – path for the iphreeqc compiled library .dll for windows or .so for linux</p>
+</dd>
+</dl>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">IPhreeqc is compiled on installation for Linux GNU compilers are used
+<p class="admonition-title">Note</p>
+<p>IPhreeqc is compiled on installation for Linux GNU compilers are used
 and for windows visual studio 10 compilers are used. By default these compiled
 files are used.</p>
 </div>
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.AccumulateLine">
-<code class="descname">AccumulateLine</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.AccumulateLine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.AccumulateLine" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.AccumulateLine">
+<span class="sig-name descname"><span class="pre">AccumulateLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.AccumulateLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.AccumulateLine" title="Permalink to this definition"></a></dt>
 <dd><p>Accumlate line(s) for input to phreeqc</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.AddError">
-<code class="descname">AddError</code><span class="sig-paren">(</span><em>phc_error_msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.AddError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.AddError" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.AddError">
+<span class="sig-name descname"><span class="pre">AddError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phc_error_msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.AddError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.AddError" title="Permalink to this definition"></a></dt>
 <dd><p>Appends the given error message and increments the error count. Internally
 used fo create an error condition</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phc_error_msg</strong> (<em>string</em>) – Error message to append</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phc_error_msg</strong> (<em>string</em>) – Error message to append</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.AddWarning">
-<code class="descname">AddWarning</code><span class="sig-paren">(</span><em>phc_warn_msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.AddWarning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.AddWarning" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.AddWarning">
+<span class="sig-name descname"><span class="pre">AddWarning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phc_warn_msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.AddWarning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.AddWarning" title="Permalink to this definition"></a></dt>
 <dd><p>Appends the given warning message and increments the warning count.
 Internally used to create warning condition</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phc_warn_msg</strong> (<em>string</em>) – Warning message to append</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phc_warn_msg</strong> (<em>string</em>) – Warning message to append</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.ClearAccumulatedLines">
-<code class="descname">ClearAccumulatedLines</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.ClearAccumulatedLines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.ClearAccumulatedLines" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.ClearAccumulatedLines">
+<span class="sig-name descname"><span class="pre">ClearAccumulatedLines</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.ClearAccumulatedLines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.ClearAccumulatedLines" title="Permalink to this definition"></a></dt>
 <dd><p>Clear the accumlated input buffer. Input buffer is accumlated from
-calls to <code class="xref py py-func docutils literal"><span class="pre">AccumulateLine()</span></code></p>
+calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">AccumulateLine()</span></code></p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.CreateIPhreeqc">
-<code class="descname">CreateIPhreeqc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.CreateIPhreeqc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.CreateIPhreeqc" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.CreateIPhreeqc">
+<span class="sig-name descname"><span class="pre">CreateIPhreeqc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.CreateIPhreeqc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.CreateIPhreeqc" title="Permalink to this definition"></a></dt>
 <dd><p>Create a new IPhreeqc instance</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.DestroyIPhreeqc">
-<code class="descname">DestroyIPhreeqc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.DestroyIPhreeqc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.DestroyIPhreeqc" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.DestroyIPhreeqc">
+<span class="sig-name descname"><span class="pre">DestroyIPhreeqc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.DestroyIPhreeqc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.DestroyIPhreeqc" title="Permalink to this definition"></a></dt>
 <dd><p>Release an IPhreeqc instance from memory</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.GetComponent">
-<code class="descname">GetComponent</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetComponent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetComponent" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetComponent">
+<span class="sig-name descname"><span class="pre">GetComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetComponent" title="Permalink to this definition"></a></dt>
 <dd><p>Retrieves the given component</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>integer</em>) – The zero-based index of the component to retrieve</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>integer</em>) – The zero-based index of the component to retrieve</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="IPhreeqcPy.IPhreeqc.GetComponentCount">
-<code class="descname">GetComponentCount</code><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetComponentCount" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetComponentCount">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetComponentCount</span></span><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetComponentCount" title="Permalink to this definition"></a></dt>
 <dd><p>Retrieves the number of component in the current component list</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.GetComponentList">
-<code class="descname">GetComponentList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetComponentList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetComponentList" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetComponentList">
+<span class="sig-name descname"><span class="pre">GetComponentList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetComponentList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetComponentList" title="Permalink to this definition"></a></dt>
 <dd><p>Get names of all components</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list with component names</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list with component names</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.GetDumpString">
-<code class="descname">GetDumpString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetDumpString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetDumpString" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetDumpString">
+<span class="sig-name descname"><span class="pre">GetDumpString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetDumpString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetDumpString" title="Permalink to this definition"></a></dt>
 <dd><p>Gives dump string as output</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.GetErrorString">
-<code class="descname">GetErrorString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetErrorString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetErrorString" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves the error messages from the last call to <code class="xref py py-func docutils literal"><span class="pre">RunAccumulated()</span></code>,
-<code class="xref py py-func docutils literal"><span class="pre">RunFile()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">RunString()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">LoadDatabase()</span></code>,
-<code class="xref py py-func docutils literal"><span class="pre">LoadDatabaseString()</span></code></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Error string</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
-</tr>
-</tbody>
-</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetErrorString">
+<span class="sig-name descname"><span class="pre">GetErrorString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetErrorString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetErrorString" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the error messages from the last call to <code class="xref py py-func docutils literal notranslate"><span class="pre">RunAccumulated()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">RunFile()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">RunString()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">LoadDatabase()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">LoadDatabaseString()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Error string</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.GetSelectedOutputArray">
-<code class="descname">GetSelectedOutputArray</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetSelectedOutputArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputArray" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetSelectedOutputArray">
+<span class="sig-name descname"><span class="pre">GetSelectedOutputArray</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetSelectedOutputArray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputArray" title="Permalink to this definition"></a></dt>
 <dd><p>Get all values from selected output</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">All values of the selected output in multi-list form</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All values of the selected output in multi-list form</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.GetSelectedOutputCol">
-<code class="descname">GetSelectedOutputCol</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetSelectedOutputCol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputCol" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetSelectedOutputCol">
+<span class="sig-name descname"><span class="pre">GetSelectedOutputCol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetSelectedOutputCol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputCol" title="Permalink to this definition"></a></dt>
 <dd><p>Get all values for one column from selected output</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>col</strong> (<em>integer</em>) – column index</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of selected output for a given column</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>col</strong> (<em>integer</em>) – column index</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of selected output for a given column</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="IPhreeqcPy.IPhreeqc.GetSelectedOutputColumnCount">
-<code class="descname">GetSelectedOutputColumnCount</code><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputColumnCount" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetSelectedOutputColumnCount">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSelectedOutputColumnCount</span></span><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputColumnCount" title="Permalink to this definition"></a></dt>
 <dd><p>Retrieves the number of columns in the selected output buffer</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.GetSelectedOutputRow">
-<code class="descname">GetSelectedOutputRow</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetSelectedOutputRow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputRow" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetSelectedOutputRow">
+<span class="sig-name descname"><span class="pre">GetSelectedOutputRow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetSelectedOutputRow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputRow" title="Permalink to this definition"></a></dt>
 <dd><p>Get all values for one row from  selected output</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>row</strong> (<em>integer</em>) – row index</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of selected output for a given row</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>integer</em>) – row index</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of selected output for a given row</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="IPhreeqcPy.IPhreeqc.GetSelectedOutputRowCount">
-<code class="descname">GetSelectedOutputRowCount</code><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputRowCount" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetSelectedOutputRowCount">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSelectedOutputRowCount</span></span><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputRowCount" title="Permalink to this definition"></a></dt>
 <dd><p>Get number of rows in selected output</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.GetSelectedOutputValue">
-<code class="descname">GetSelectedOutputValue</code><span class="sig-paren">(</span><em>row</em>, <em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetSelectedOutputValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputValue" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.GetSelectedOutputValue">
+<span class="sig-name descname"><span class="pre">GetSelectedOutputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.GetSelectedOutputValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.GetSelectedOutputValue" title="Permalink to this definition"></a></dt>
 <dd><p>Get one value from selected output at given row and column</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>row</strong> (<em>integer</em>) – row index</li>
-<li><strong>column</strong> (<em>integer</em>) – column index</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<em>integer</em>) – row index</p></li>
+<li><p><strong>column</strong> (<em>integer</em>) – column index</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Selected output value</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Real</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Selected output value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Real</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.LoadDatabase">
-<code class="descname">LoadDatabase</code><span class="sig-paren">(</span><em>database_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.LoadDatabase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.LoadDatabase" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.LoadDatabase">
+<span class="sig-name descname"><span class="pre">LoadDatabase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.LoadDatabase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.LoadDatabase" title="Permalink to this definition"></a></dt>
 <dd><p>Load a database with given file_name</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>database_name</strong> (<em>string</em>) – <p>path to the database. IphreeqcPy comes with all databases of
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>database_name</strong> (<em>string</em>) – <p>path to the database. IphreeqcPy comes with all databases of
 phreeqc and cemdata07.To use one of these database type the relevant
 filename. Filenames are listed below</p>
 <ul class="simple">
-<li>alkaline.dat</li>
-<li>cemdata07.dat</li>
-<li>ex15.dat</li>
-<li>llnl.dat</li>
-<li>mcatexch.dat</li>
-<li>minteq.dat</li>
-<li>minteq.V4.dat</li>
-<li>phreeqc.dat</li>
-<li>phreeqcU.dat</li>
-<li>phreeqd.dat</li>
-<li>pitzer.dat</li>
-<li>wateq4f.dat</li>
+<li><p>alkaline.dat</p></li>
+<li><p>cemdata07.dat</p></li>
+<li><p>ex15.dat</p></li>
+<li><p>llnl.dat</p></li>
+<li><p>mcatexch.dat</p></li>
+<li><p>minteq.dat</p></li>
+<li><p>minteq.V4.dat</p></li>
+<li><p>phreeqc.dat</p></li>
+<li><p>phreeqcU.dat</p></li>
+<li><p>phreeqd.dat</p></li>
+<li><p>pitzer.dat</p></li>
+<li><p>wateq4f.dat</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.LoadDatabaseString">
-<code class="descname">LoadDatabaseString</code><span class="sig-paren">(</span><em>input_string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.LoadDatabaseString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.LoadDatabaseString" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.LoadDatabaseString">
+<span class="sig-name descname"><span class="pre">LoadDatabaseString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.LoadDatabaseString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.LoadDatabaseString" title="Permalink to this definition"></a></dt>
 <dd><p>Loads a database from a string</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_string</strong> (<em>string</em>) – input database string</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>input_string</strong> (<em>string</em>) – input database string</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.RunAccumulated">
-<code class="descname">RunAccumulated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.RunAccumulated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.RunAccumulated" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run the input buffer as defined by calls to <code class="xref py py-func docutils literal"><span class="pre">AccumulateLine()</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.RunAccumulated">
+<span class="sig-name descname"><span class="pre">RunAccumulated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.RunAccumulated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.RunAccumulated" title="Permalink to this definition"></a></dt>
+<dd><p>Run the input buffer as defined by calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">AccumulateLine()</span></code></p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.RunFile">
-<code class="descname">RunFile</code><span class="sig-paren">(</span><em>Filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.RunFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.RunFile" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.RunFile">
+<span class="sig-name descname"><span class="pre">RunFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.RunFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.RunFile" title="Permalink to this definition"></a></dt>
 <dd><p>run instructions from a file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Filename</strong> (<em>string</em>) – path to file to run instructions from</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Filename</strong> (<em>string</em>) – path to file to run instructions from</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.RunString">
-<code class="descname">RunString</code><span class="sig-paren">(</span><em>cmd_string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.RunString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.RunString" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.RunString">
+<span class="sig-name descname"><span class="pre">RunString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd_string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.RunString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.RunString" title="Permalink to this definition"></a></dt>
 <dd><p>Run PHREEQC input from string</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmd_string</strong> (<em>string</em>) – string of phreeqc command to be executed</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cmd_string</strong> (<em>string</em>) – string of phreeqc command to be executed</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.SetDumpFileOff">
-<code class="descname">SetDumpFileOff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetDumpFileOff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetDumpFileOff" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.SetDumpFileOff">
+<span class="sig-name descname"><span class="pre">SetDumpFileOff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetDumpFileOff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetDumpFileOff" title="Permalink to this definition"></a></dt>
 <dd><p>Set the dump file switch off</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.SetDumpFileOn">
-<code class="descname">SetDumpFileOn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetDumpFileOn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetDumpFileOn" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.SetDumpFileOn">
+<span class="sig-name descname"><span class="pre">SetDumpFileOn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetDumpFileOn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetDumpFileOn" title="Permalink to this definition"></a></dt>
 <dd><p>Set the dump file switch on to write dump file</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.SetDumpStringOff">
-<code class="descname">SetDumpStringOff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetDumpStringOff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetDumpStringOff" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.SetDumpStringOff">
+<span class="sig-name descname"><span class="pre">SetDumpStringOff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetDumpStringOff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetDumpStringOff" title="Permalink to this definition"></a></dt>
 <dd><p>Set the dump string switch off</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.SetDumpStringOn">
-<code class="descname">SetDumpStringOn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetDumpStringOn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetDumpStringOn" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.SetDumpStringOn">
+<span class="sig-name descname"><span class="pre">SetDumpStringOn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetDumpStringOn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetDumpStringOn" title="Permalink to this definition"></a></dt>
 <dd><p>Set the dump string switch on to get dump string</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOff">
-<code class="descname">SetSelectedOutputFileOff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetSelectedOutputFileOff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOff" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOff">
+<span class="sig-name descname"><span class="pre">SetSelectedOutputFileOff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetSelectedOutputFileOff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOff" title="Permalink to this definition"></a></dt>
 <dd><p>Turn on writing to selected output file</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOn">
-<code class="descname">SetSelectedOutputFileOn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetSelectedOutputFileOn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOn" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOn">
+<span class="sig-name descname"><span class="pre">SetSelectedOutputFileOn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/IPhreeqcPy.html#IPhreeqc.SetSelectedOutputFileOn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#IPhreeqcPy.IPhreeqc.SetSelectedOutputFileOn" title="Permalink to this definition"></a></dt>
 <dd><p>Turn on writing to selected output file</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
-      
-        <p>
-        «&#160;&#160;<a href="example.html">Quick Start Example</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="contents.html">Contents</a>
-        </p>
-
-      </div>
-
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Ravi Patel.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="example.html" class="btn btn-neutral float-left" title="Quick Start Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  </body>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016, Ravi Patel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

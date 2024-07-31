@@ -19,8 +19,7 @@ import shlex
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, os.path.abspath(os.path.join('..','src')))
-import IPhreeqcPy
+sys.path.insert(0, os.path.abspath('../src/IPhreeqcPy'))  # Adjust the path as needed
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -68,8 +67,8 @@ author = u'Ravi Patel'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
-# The short X.Y version.
-version = IPhreeqcPy.__version__
+# The short X.Y version. ( this is to be udpated with each release manually)
+version = "24.0"
 # The full version, including alpha/beta/rc tags.
 release = ''
 
@@ -122,7 +121,7 @@ todo_include_todos = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'haiku'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
