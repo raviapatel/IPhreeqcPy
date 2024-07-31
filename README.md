@@ -35,7 +35,7 @@ Source code is hosted on
 
     pip install IPhreeqcPy
 
-for installation for source read the documentation
+for installation for source read the [documentation](https://iphreeqcpy.readthedocs.io/en/latest/)
 
 ## Detailed Documentation
 

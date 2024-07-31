@@ -42,6 +42,6 @@ This is a simple example to demonstrate use of IPhreeqcPy. This example is inclu
     -punch_frequency 500    
     """    
     ) #You can also run phreeqc like this 
-    print x.GetSelectedOutputArray() #get selected output
-    print x.GetDumpString() #get dump string
+    print (x.GetSelectedOutputArray()) #get selected output
+    print (x.GetDumpString()) #get dump string
 
