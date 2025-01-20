@@ -12,10 +12,11 @@ jobs:
         python-version: ['3.8']
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v4  # Updated to v4 (Node.js 20 support)
     
     - name: Set up Miniconda
-      uses: conda-incubator/setup-miniconda@v2
+      uses: conda-incubator/setup-miniconda@v3  # Updated to v3 (Node.js 20 support)
       with:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
