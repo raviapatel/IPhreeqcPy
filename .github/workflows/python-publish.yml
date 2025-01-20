@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v2
@@ -56,18 +56,18 @@ jobs:
       shell: pwsh
       run: |
         if ($env:RUNNER_OS -eq "Linux") {
-          echo "::set-output name=plat-name::manylinux2014_x86_64"
+          echo "plat-name=manylinux2014_x86_64" >> $GITHUB_ENV
         } elseif ($env:RUNNER_OS -eq "Windows") {
-          echo "::set-output name=plat-name::win_amd64"
+          echo "plat-name=win_amd64" >> $GITHUB_ENV
         } else {
-          echo "::set-output name=plat-name::unknown"
+          echo "plat-name=unknown" >> $GITHUB_ENV
         }
     
     - name: Build wheel
-      run: python setup.py bdist_wheel --plat-name ${{ steps.set-platform-tag.outputs.plat-name }} --python-tag=py3
+      run: python setup.py bdist_wheel --plat-name ${{ env.plat-name }} --python-tag=py3
         
     - name: Upload wheel to artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: wheel-${{ runner.os }}
         path: dist/*.whl
@@ -78,19 +78,19 @@ jobs:
 
     steps:
     - name: Download wheel artifacts (Windows)
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: wheel-Windows
         path: dist/windows
 
     - name: Download wheel artifacts (Linux)
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: wheel-Linux
         path: dist/linux
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
 
