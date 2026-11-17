@@ -57,7 +57,7 @@ class CompilePhrqc(Command):
         # URLs for the IPhreeqc source code for windows and linux. Update when new versions released
         iphreeqc_urls = {
             "win": f"https://water.usgs.gov/water-resources/software/PHREEQC/{phrqc_version}.zip",
-            "linux":"https://water.usgs.gov/water-resources/software/PHREEQC/{phrqc_version}.tar.gz"
+            "linux": f"https://water.usgs.gov/water-resources/software/PHREEQC/{phrqc_version}.tar.gz"
         }
         current_path = os.path.abspath(os.getcwd())
         build_exists = False
@@ -91,13 +91,10 @@ class CompilePhrqc(Command):
         fpath= ".".join(phreeqc_url.split('/')[-1].split('.')[:-1])
         fpath= join('phreeqc',fpath)
         os.chdir(fpath)    
-        if platform.architecture()[0]=='64bit':
-            print("64 bit")
-            subprocess.call('cmake -G "Visual Studio 16 2019" -A x64  -DBUILD_SHARED_LIBS=ON', shell=True)
-            subprocess.call('cmake --build . --config Release', shell=True)
-        if platform.architecture()[0]=='32bit':
-            subprocess.call('cmake -G "Visual Studio 16 2019" -A Win32   -DBUILD_SHARED_LIBS=ON', shell=True)
-            subprocess.call('cmake --build . --config Release', shell=True)  
+        # Let CMake pick the newest installed Visual Studio generator
+        arch = 'x64' if platform.architecture()[0] == '64bit' else 'Win32'
+        subprocess.check_call(f'cmake -A {arch} -DBUILD_SHARED_LIBS=ON .', shell=True)
+        subprocess.check_call('cmake --build . --config Release', shell=True)
         os.chdir(join("..",".."))  
         current_path = os.path.abspath(os.getcwd())
         shutil.copy(join(fpath,'Release','IPhreeqc.dll'),os.path.join(current_path,'src','IPhreeqcPy','lib'))
