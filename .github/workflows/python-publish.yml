@@ -50,19 +50,15 @@ jobs:
       run: python setup.py compile_phreeqc
 
     - name: Set platform tag
-      id: set-platform-tag
-      shell: pwsh
       run: |
-        if ($env:RUNNER_OS -eq "Linux") {
-          echo "plat-name=manylinux2014_x86_64" >> $GITHUB_ENV
-        } elseif ($env:RUNNER_OS -eq "Windows") {
-          echo "plat-name=win_amd64" >> $GITHUB_ENV
-        } else {
-          echo "plat-name=unknown" >> $GITHUB_ENV
-        }
-    
+        if [ "$RUNNER_OS" = "Linux" ]; then
+          echo "PLAT_NAME=manylinux2014_x86_64" >> "$GITHUB_ENV"
+        else
+          echo "PLAT_NAME=win_amd64" >> "$GITHUB_ENV"
+        fi
+
     - name: Build wheel
-      run: python setup.py bdist_wheel --plat-name ${{ env.plat-name }} --python-tag=py3
+      run: python setup.py bdist_wheel --plat-name "$PLAT_NAME" --python-tag py3
         
     - name: Upload wheel to artifact
       uses: actions/upload-artifact@v4
@@ -100,16 +96,5 @@ jobs:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        for file in dist/**/*.whl; do
-          if twine check $file; then
-            PACKAGE_NAME=$(basename $file | sed -E 's/(.*)-([0-9]+.*)-.*/\1/')
-            PACKAGE_VERSION=$(basename $file | sed -E 's/.*-([0-9]+.*)-.*/\1/')
-            if ! curl -s -f https://pypi.org/project/$PACKAGE_NAME/$PACKAGE_VERSION/ > /dev/null; then
-              twine upload $file
-            else
-              echo "$file already exists on PyPI. Skipping upload."
-            fi
-          else
-            echo "$file failed the check. Skipping upload."
-          fi
-        done
+        twine check dist/*/*.whl
+        twine upload --skip-existing dist/*/*.whl
