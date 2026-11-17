@@ -145,6 +145,7 @@ def run_setup():
         license='LGPL V3',
         description='Python wrapper for Iphreeqc',
         long_description=open('README.md').read(),
+        long_description_content_type='text/markdown',
         project_urls={
             'Documentation': 'https://iphreeqcpy.readthedocs.io/en/latest/',
             'Source': 'https://github.com/raviapatel/IPhreeqcPy/tree/main',
