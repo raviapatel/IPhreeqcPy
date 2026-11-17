@@ -53,10 +53,11 @@ class CompilePhrqc(Command):
     """Custom install command to compile the IPhreeqc.dll for windows and libiphreeqc.so for linux"""
     def run(self):
         """Run the install command"""
+        phrqc_version = "iphreeqc-3.8.6-17100" 
         # URLs for the IPhreeqc source code for windows and linux. Update when new versions released
         iphreeqc_urls = {
-            "win": "https://water.usgs.gov/water-resources/software/PHREEQC/iphreeqc-3.7.3-15968.zip",
-            "linux":"https://water.usgs.gov/water-resources/software/PHREEQC/iphreeqc-3.7.3-15968.tar.gz"
+            "win": f"https://water.usgs.gov/water-resources/software/PHREEQC/{phrqc_version}.zip",
+            "linux":"https://water.usgs.gov/water-resources/software/PHREEQC/{phrqc_version}.tar.gz"
         }
         current_path = os.path.abspath(os.getcwd())
         build_exists = False
